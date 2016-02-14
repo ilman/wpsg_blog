@@ -1,0 +1,6 @@
+{
+    "require": {
+        "scienceguard/sg_util": "*@dev",
+        "scienceguard/sg_form": "*@dev"
+    }
+}

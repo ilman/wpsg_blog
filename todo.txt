@@ -1,0 +1,6 @@
+- base theme content
+- theme option
+- metabox
+- customizer
+- custom post type
+- search result page
