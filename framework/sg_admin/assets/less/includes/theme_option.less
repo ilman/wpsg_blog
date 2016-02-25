@@ -1,0 +1,99 @@
+.sg-to-wrapper{
+	padding:30px 0;
+	color:#666;
+}
+
+.sg-to-container{
+	border:@base-border;
+	padding:0;
+	width:860px;
+}
+
+@media (max-width: @screen-xs-max){
+	.sg-to-container{
+		width:100%;
+	}
+}
+
+.sg-to-content{
+	border-top:@base-border;
+	padding:0 @base-margin;
+	background: #eee;
+}
+
+.sg-to-side{
+	padding:0;
+	z-index:1;
+
+	.sgtb-navbar-collapse{ padding:0; }
+	.sgtb-navbar-nav{ float:none; list-style:none; }
+	.sgtb-navbar-nav > li{ float:none; margin:0; border-bottom:@base-border; list-style:none; }
+	.sgtb-navbar-nav > li a{ padding:10px @base-margin; display:block; font-weight:bold; color:@text-color; }
+	.sgtb-navbar-nav > li.active{ margin-right:-1px; }
+	.sgtb-navbar-nav > li.active > a{ background:#fff; }
+	.sgtb-navbar-nav > li .sg-icon16{ position:absolute; right:10px; }
+	.sgtb-navbar-nav > li > ul{ background:#f2f2f2; border-top:#ddd solid 1px; }
+	.sgtb-navbar-nav > li > ul > li{ border-top:#fff solid 1px; }
+	.sgtb-navbar-nav > li > ul > li:first-child{ border-top:0 none; }
+
+	.sg-to-icon{ margin-right:5px; }
+}
+
+.sg-to-main{
+	border-left:@base-border;
+	background:#fff;
+	padding-top:@base-margin;
+	padding-bottom:@base-margin;
+
+	.sgtb-form-group{
+		margin:0;
+		padding:10px 0;
+		border-top:#eee solid 1px;
+
+		&:first-child{ border-top:0 none; }
+	}
+	.sgtb-help-block{ color:#999; }
+}
+
+.sg-to-toolbar{
+	.clearfix();
+	padding:10px @base-margin;
+	border-top:@base-border;
+	background:#fff;
+
+	&:first-child{ border-top:0 none; }
+	.sgtb-navbar-right{ margin:0; }
+}
+
+.sg-to-header{
+	padding:30px @base-margin;
+	background:#eee;
+
+	.sg-to-logo{
+		h3{ text-transform:uppercase; color:#999; }
+		strong{ color:@text-color; }
+		*{ margin:0; }
+	}
+}
+
+.sg-form-title{ font-size:1.5em; line-height:1.1em; margin:0 0 @base-margin; }
+
+fieldset{
+	border: #eee solid 1px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+
+    legend+.sgtb-form-group{ border-top:0 none !important; }
+}
+
+legend{ 
+	margin: 0 15px; 
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: @brand-primary;
+    font-size: 1.1em;
+    display:inline;
+    width:auto;
+    border:0 none;
+}

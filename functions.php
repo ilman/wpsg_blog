@@ -11,7 +11,13 @@ define('SG_THEME_OPTIONS', get_option(SG_THEME_ID));
 require_once locate_template('vendor/autoload.php');
 require_once locate_template('framework/helpers/wpsg_helpers.php');
 require_once locate_template('framework/sg_wrapper/init.php');
+require_once locate_template('framework/sg_admin/init.php');
 require_once locate_template('framework/actions.php');
+require_once locate_template('front/framework/init.php');
+
+
+require_once locate_template('settings/theme_options.php');
+require_once locate_template('settings/metaboxes.php');
 
 sg_include_path('framework/template_tags');
 

@@ -34,6 +34,12 @@ function sg_view_path($path){
 }
 
 
+function sg_asset_url($path){
+	$path = trim($path, '/');
+	return get_template_directory_uri().'/'.$path;
+}
+
+
 function sg_get_template_part( $slug, $name = null ) {
 	if($name){
 		$file = $slug.'-'.$name;

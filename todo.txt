@@ -1,6 +1,14 @@
-- base theme content
+- [done] base theme content
 - theme option
+- auto set default option
 - metabox
-- customizer
 - custom post type
+- shortcode
 - search result page
+- 404 page
+- author page
+- category page
+- customizer
+- multilingual
+- user avatar
+- custom file tree editor
