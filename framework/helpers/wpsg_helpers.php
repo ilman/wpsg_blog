@@ -7,9 +7,11 @@ function sg_val($array, $key=null, $default=null){
 }
 
 /*wrapper to get theme option*/
-function sg_opt($param=null, $default=null){	
-	if(SG_THEME_OPTIONS){
-		return sg_val(SG_THEME_OPTIONS, $param, $default);
+function sg_opt($param=null, $default=null){
+	global $sg_theme_options;
+	
+	if($sg_theme_options){
+		return sg_val($sg_theme_options, $param, $default);
 	}
 	else{		
 		return sg_val(null, $param, $default);

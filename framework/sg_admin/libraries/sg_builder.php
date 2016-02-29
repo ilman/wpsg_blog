@@ -8,8 +8,8 @@ if(!class_exists('SG_Builder')){
 	Class SG_Builder{
 
 		static function init(){
-			wp_register_script('sg-form-tab', SG_ADMIN_URL.'/assets/scripts/sg_form_tab.js', array('sg-form'));
-			wp_enqueue_script('sg-form-tab');
+			// wp_register_script('sg-form-tab', SG_ADMIN_URL.'/assets/scripts/sg_form_tab.js', array('sg-form'));
+			// wp_enqueue_script('sg-form-tab');
 		}
 
 		static function form_init(){
@@ -18,7 +18,9 @@ if(!class_exists('SG_Builder')){
 
 		static function form_admin_enqueue_scripts() {
 			// js
-			wp_enqueue_script('sg_font_google');
+			wp_register_script('sg-font-google', SG_ADMIN_URL.'/assets/js/min/google-fonts.min.js', array(), '', false);
+			// wp_localize_script('sg-font-google', '$font_google', SG_Wp::get_google_font_json());
+			wp_enqueue_script('sg-font-google');
 
 			$deps = array( 'jquery' );
 			$deps[] = 'jquery-ui-slider';
@@ -35,29 +37,21 @@ if(!class_exists('SG_Builder')){
 				$deps[] = 'thickbox';
 			}
 			
-			wp_enqueue_script('jquery-colorpicker', SG_ADMIN_URL.'/assets/js/colorpicker/js/colorpicker.js', array('jquery'), NULL );
-			$deps[] = 'jquery-colorpicker';
-			wp_enqueue_script('jquery-cookie', SG_ADMIN_URL.'/assets/js/jquery.cookie.js', array('jquery'), NULL );
-			$deps[] = 'jquery-cookie';
-			wp_enqueue_script('jquery-toastmessage', SG_ADMIN_URL.'/assets/js/toastmessage/jquery.toastmessage.js', array('jquery'), NULL );
-			$deps[] = 'jquery-toastmessage';
-			wp_enqueue_script('jquery-select2', SG_ADMIN_URL.'/assets/js/select2/select2.js', array('jquery'), NULL );
-			$deps[] = 'jquery-select2';
-			wp_enqueue_script('sg-helper', SG_ADMIN_URL.'/assets/scripts/sg_helper.js', NULL, NULL );
-			$deps[] = 'sg-helper';
+			wp_enqueue_script('sg-form-plugins', SG_ADMIN_URL.'/assets/js/min/plugins.min.js', array('jquery'), NULL );
+			$deps[] = 'sg-form-plugins';
 
-			wp_enqueue_script('sg-form', SG_ADMIN_URL.'/assets/scripts/sg_form.js', $deps, NULL );
-			wp_enqueue_script('sg-form-upload', SG_ADMIN_URL.'/assets/scripts/sg_form_upload.js', array('sg-form'), NULL );
+			wp_enqueue_script('sg-form', SG_ADMIN_URL.'/assets/js/sg-form.js', $deps, NULL );
+			wp_enqueue_script('sg-form-upload', SG_ADMIN_URL.'/assets/js/sg-form-upload.js', array('sg-form'), NULL );
 
 			
 			// css		
-			wp_enqueue_style('thickbox');
-			wp_enqueue_style('jquery-colorpicker', SG_ADMIN_URL.'/assets/js/colorpicker/css/colorpicker.css');		
+			wp_enqueue_style('thickbox');	
 			wp_enqueue_style( 'sg-bootstrap', SG_ADMIN_URL.'/assets/css/sg-bootstrap.css');
 			wp_enqueue_style( 'sg-framework', SG_ADMIN_URL.'/assets/css/sg-framework.css');
+			wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css');
 		}
 
-		static function nav_builder($fields, $i=0){
+		static function nav_builder($fields, $i=0, $has_active=false){
 			$output = '';
 			$is_child = ($i>0) ? true : false;
 			
@@ -69,23 +63,31 @@ if(!class_exists('SG_Builder')){
 				
 				if($field['type']==='heading'){
 					$field_child = SG_Util::val($field,'fields');
-					$field_icon = '<span class="to-icon"><img src="'.$field_icon.'" alt="&bull;" /></span>';
+					$field_icon = '<span class="sg-to-icon"><img src="'.$field_icon.'" alt="&bull;" /></span>';
 					$li_class = 'tab-'.SG_Util::slug($field_label);
+
+					if($has_active){
+						$li_class = trim($li_class);
+					}
+					else{
+						$li_class = trim($li_class.' active');
+						$has_active = true;
+					}
 					
 					if($field_child){
-						$field_child = self::nav_builder($field_child, $i+1);
+						$field_child = self::nav_builder($field_child, $i+1, $has_active);
 					}
 					
 					if($field_child){
 						$output .= '<li class="'.$li_class.' parent">';
-						$output .= '<a>'.$field_icon.' '.$field_label.' <i class="sg-icon icon-toggle"></i></a>';
+						$output .= '<a>'.$field_icon.' '.ucwords($field_label).' <i class="caret"></i></a>';
 						$output .= '<ul>'.$field_child.'</ul>';
 					}
 					else{
 						$output .= '<li class="'.$li_class.'">';
-						$output .= '<a href="#tab-'.SG_Util::slug($field_label).'">';
+						$output .= '<a href="#tab-'.SG_Util::slug($field_label).'" data-toggle="tab">';
 						$output .= ($is_child) ? '' : $field_icon.' ';
-						$output .= $field_label.'</a>';
+						$output .= ucwords($field_label).'</a>';
 					}
 					$output .= '</li>';
 					$i++;	
@@ -104,8 +106,10 @@ if(!class_exists('SG_Builder')){
 			$form_type = SG_Util::val($args,'form_type');
 			$form_class = SG_Util::val($args, 'form_class');
 			$context = SG_Util::val($args, 'context');
+			$has_active = SG_Util::val($args, 'has_active', false);
 
 			// $output .= ($is_child) ? '' : '<div class="sg-form-container">';
+
 
 			foreach($fields as $field):
 				$field_label = SG_Util::val($field,'label');
@@ -171,13 +175,27 @@ if(!class_exists('SG_Builder')){
 					if($i > 0){
 						$output .= '</div><!-- tab item heading -->';	
 					}
-					$field_attr['class'] = trim('sgtb-tab-pane active '.$field_class);
+
+					if($has_active){
+						$field_attr['class'] = trim('sgtb-tab-pane '.$field_class);
+					}
+					else{
+						$field_attr['class'] = trim('sgtb-tab-pane active '.$field_class);
+						$has_active = true;
+					}
+
 					$field_attr['rel'] = SG_Util::slug($field_label);
 					$field_attr['id'] = SG_Util::slug('tab-'.$field_label);
 
 					$output .= '<div '.self::inline_attr($field_attr).'>';
-					$output .= '<h2 class="sg-form-title">'.$field_label.'</h2>';
+					$output .= '<h2 class="sg-form-title">'.ucwords($field_label).'</h2>';
 					if($field_child){
+						if($has_active){
+							$args['has_active'] = true;
+						}
+						else{
+							$args['has_active'] = false;
+						}
 						$output .= self::form_builder($field_child, $values, $i+1, $args);
 					}
 					$i++;

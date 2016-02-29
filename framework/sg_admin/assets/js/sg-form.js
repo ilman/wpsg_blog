@@ -1,9 +1,7 @@
 var $window = jQuery(window);
 var wpsg = {};
 
-var babi;
-
-wpsg.init = function() {
+wpsg.init = function($) {
 
 	/*----bootstrap starter----*/
 
@@ -379,6 +377,27 @@ wpsg.init = function() {
 				$icon_input.val(e.icon);
 			});
 		});
+	})();
+
+
+	/*--- bootstrap nested tab ---*/
+
+	(function(){
+
+		$('body').on('click', '.sgtb-nav .parent > a', function(e) {
+			e.preventDefault();
+
+			var $this = $(this);
+			var $parent = $this.parent();
+
+			if (!$parent.hasClass('active')) {
+				$parent.addClass('active').siblings('li').removeClass('active');
+				$parent.find('a[data-toggle="tab"]').first().click();
+			}
+		});
+
+		
+
 	})();
 };
 

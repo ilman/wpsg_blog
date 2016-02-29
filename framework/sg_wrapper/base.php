@@ -13,7 +13,6 @@ $sg_wrapper = array(
 );
 
 
-
 /*--- validate theme_layout ---*/
 if(!$sg_wrapper['theme_layout']){
 	$value = null;
@@ -29,6 +28,9 @@ if(!$sg_wrapper['theme_layout']){
 	}
 	elseif(is_search()){
 		$value = sg_opt('search_result_layout');
+	}
+	else{
+		$value = sg_opt('blog_layout');
 	}
 
 	$sg_wrapper['theme_layout'] = ($value) ? $value : 'layout-side-right';

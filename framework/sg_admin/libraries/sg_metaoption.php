@@ -39,8 +39,8 @@ if(!class_exists('SG_MetaOption')){
 		}
 		
 		function _admin_enqueue_scripts() {
-			wp_enqueue_script('sg-theme-options', SG_ADMIN_URL.'/assets/scripts/sg_theme_options.js', array('sg-form') );
-			wp_enqueue_script('sg-theme-settings', SG_ADMIN_URL.'/assets/scripts/sg_theme_settings.js', 'sg-theme-options');
+			// wp_enqueue_script('sg-theme-options', SG_ADMIN_URL.'/assets/scripts/sg-theme-options.js', array('sg-form') );
+			// wp_enqueue_script('sg-theme-settings', SG_ADMIN_URL.'/assets/scripts/sg-theme-settings.js', 'sg-theme-options');
 			
 			// css
 			wp_enqueue_style('sg-bootstrap', SG_ADMIN_URL.'/assets/css/sg-bootstrap.css');
@@ -98,7 +98,7 @@ if(!class_exists('SG_MetaOption')){
 							$sanitizer = 'repeat';
 						}
 														
-						$new = SG_Form::sanitize($new, $sanitizer);	
+						$new = SG_Builder::sanitize($new, $sanitizer);	
 						$output[$field_name] = $new;
 					}
 					else{

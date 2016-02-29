@@ -25,7 +25,7 @@
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover sgtb-popover" role="tooltip"><div class="arrow sgtb-arrow"></div><h3 class="popover-title sgtb-popover-title"></h3><div class="popover-content sgtb-popover-content"></div></div>'
+    template: '<div class="popover sgtb-popover" role="tooltip"><div class="sgtb-arrow"></div><h3 class="popover-title sgtb-popover-title"></h3><div class="popover-content sgtb-popover-content"></div></div>'
   })
 
 

@@ -69,10 +69,7 @@ if(!class_exists('SG_MetaShortcode')){
 						'button_title' => $sc_button->button_title,
 						'button_icon' => $sc_button->button_icon,
 					);
-				}
-				wp_register_script('sg_pool', SG_ADMIN_URL.'/assets/scripts/sg_pool.js', array(), '', false);
-				wp_localize_script('sg_pool', '$sg_sc_array', $buttons_array);
-				wp_enqueue_script('sg_pool');						
+				}				
 			}
 		}
 

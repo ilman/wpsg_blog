@@ -1,7 +1,10 @@
 - [done] base theme content
-- theme option
+- [done] theme option
+- [done] theme option google font
+- [done] theme option tab 
+- [done] metabox
+- array option helper
 - auto set default option
-- metabox
 - custom post type
 - shortcode
 - search result page
@@ -12,3 +15,4 @@
 - multilingual
 - user avatar
 - custom file tree editor
+- tgm plugin

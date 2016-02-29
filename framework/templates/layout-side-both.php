@@ -4,7 +4,7 @@
 			<div class="col-sm-9 content-main pull-right">
 				<?php do_action('sg_content_header'); ?>
 				
-				<?php sg_get_template_part($sg_wrapper['content_base'], $sg_content_layout); ?>
+				<?php sg_get_template_part($sg_wrapper['content_base'], $sg_wrapper['content_layout']); ?>
 				
 				<?php do_action('sg_content_footer'); ?>				
 			</div>

@@ -9,23 +9,23 @@ $prefix = '';
 /*----options----*/
 
 $option_body_layouts = array(
-	array('label'=>'full', 'value'=>'full'),
-	array('label'=>'boxed', 'value'=>'boxed'),
-	array('label'=>'boxed padding', 'value'=>'boxed-padding'),
+	array('label'=>'Full', 'value'=>'full'),
+	array('label'=>'Boxed', 'value'=>'boxed'),
+	array('label'=>'Boxed Padding', 'value'=>'boxed-padding'),
 );
 
 $option_blog_layouts = array(
-	array('label'=>'side none', 'value'=>'layout-full'),
-	array('label'=>'side left', 'value'=>'layout-side-left'),
-	array('label'=>'side right', 'value'=>'layout-side-right'),
-	array('label'=>'side both', 'value'=>'layout-side-both'),
+	array('label'=>'Side None', 'value'=>'layout-full'),
+	array('label'=>'Side Left', 'value'=>'layout-side-left'),
+	array('label'=>'Side Right', 'value'=>'layout-side-right'),
+	array('label'=>'Side Both', 'value'=>'layout-side-both'),
 );
 
 $option_blog_post_layouts = array(
-	array('label'=>'full', 'value'=>'full'),
-	array('label'=>'isotope', 'value'=>'isotope'),
-	array('label'=>'thumb-column', 'value'=>'thumb-column'),
-	array('label'=>'thumb-left', 'value'=>'thumb-left'),
+	array('label'=>'Full', 'value'=>'full'),
+	array('label'=>'Isotope', 'value'=>'isotope'),
+	array('label'=>'Thumb Column', 'value'=>'thumb-column'),
+	array('label'=>'Thumb Left', 'value'=>'thumb-left'),
 );
 
 $option_paginations = array(
@@ -144,6 +144,14 @@ $option_grid_layouts = array(
 	array('label'=>'Four Columns (3 + 3 + 3 + 3)', 'value'=>'3-3-3-3'),
 );
 
+$option_select_images = array(
+	array('label'=>'Image 1', 'value'=>'http://lorempixel.com/100/100/nature?1'),
+	array('label'=>'Image 2', 'value'=>'http://lorempixel.com/100/100/nature?2'),
+	array('label'=>'Image 3', 'value'=>'http://lorempixel.com/100/100/nature?3'),
+	array('label'=>'Image 4', 'value'=>'http://lorempixel.com/100/100/nature?4'),
+	array('label'=>'Image 5', 'value'=>'http://lorempixel.com/100/100/nature?5'),
+);
+
 $fields = array();
 
 
@@ -163,7 +171,7 @@ $fields = array();
 /*----test----*/
 $fields[] = array(
 	'label'		=> 'test',
-	'icon'		=> sg_asset_url('/admin/includes/sg_framework/assets/images/icons/setting_tools.png'),
+	'icon'		=> sg_asset_url('framework/sg_admin/assets/images/icons/setting_tools.png'),
 	'type'		=> 'heading',
 	'fields'	=> array(
 		array(
@@ -192,13 +200,13 @@ $fields[] = array(
 		array(
 			'label'		=> 'Select Image',
 			'id'		=> 'test_image_radio',
-			'options'	=> $option_blog_layouts,
+			'options'	=> $option_select_images,
 			'type'		=> 'image_radio'
 		),
 		array(
 			'label'		=> 'Select Multiple Images',
 			'id'		=> 'test_image_checkbox',
-			'options'	=> $option_blog_layouts,
+			'options'	=> $option_select_images,
 			'type'		=> 'image_checkbox'
 		),
 		array(
@@ -209,6 +217,9 @@ $fields[] = array(
 		array(
 			'label'		=> 'Slider Max',
 			'id'		=> 'test_slider_max',
+			'attr'		=> array(
+				'slider_max' => 300,
+			),
 			'type'		=> 'slider_max'
 		),
 		array(
@@ -217,9 +228,9 @@ $fields[] = array(
 			'type'		=> 'slider_range'
 		),
 		array(
-			'label'		=> 'Increment',
-			'id'		=> 'test_increment',
-			'type'		=> 'increment'
+			'label'		=> 'Spinner',
+			'id'		=> 'test_spinner',
+			'type'		=> 'spinner'
 		),
 		array(
 			'label'		=> 'Font',
@@ -259,7 +270,7 @@ $fields[] = array(
 /*----general settings----*/
 $fields[] = array(
 	'label'		=> 'General Settings',
-	'icon'		=> sg_asset_url('/admin/includes/sg_framework/assets/images/icons/setting_tools.png'),
+	'icon'		=> sg_asset_url('framework/sg_admin/assets/images/icons/setting_tools.png'),
 	'type'		=> 'heading',
 	'fields'	=> array(
 		array(
@@ -279,14 +290,14 @@ $fields[] = array(
 		array(  
 			'label'		=> 'Add Section',
 			'desc'		=> 'Add section wrapper in content',
-			'id' 		=> 'add_section',  
+			'id' 		=> 'theme_section',  
 			'default'	=> 'true', 
 			'type'		=> 'checkbox'
 		),
 		array(  
 			'label'		=> 'Add Container',
 			'desc'		=> 'Add container wrapper in content',
-			'id' 		=> 'add_container',  
+			'id' 		=> 'theme_container',  
 			'default'	=> false, 
 			'type'		=> 'checkbox'
 		),
@@ -297,7 +308,7 @@ $fields[] = array(
 /*----pages settings----*/
 $fields[] = array(
 	'label'		=> 'Pages Settings',
-	'icon'		=> sg_asset_url('/admin/includes/sg_framework/assets/images/icons/page.png'),
+	'icon'		=> sg_asset_url('framework/sg_admin/assets/images/icons/page.png'),
 	'type'		=> 'heading',
 	'fields'	=> array(
 		/*----blog settings----*/
@@ -507,7 +518,7 @@ $fields[] = array(
 /*----social options----*/
 $fields[] = array(
 	'label'		=> 'Social Options',
-	'icon'		=> sg_asset_url('/admin/includes/sg_framework/assets/images/icons/group.png'),
+	'icon'		=> sg_asset_url('framework/sg_admin/assets/images/icons/group.png'),
 	'type'		=> 'heading'
 );
 	
@@ -534,7 +545,7 @@ foreach($social_medias as $idx=>$social){
 /*----custom script options----*/
 $fields[] = array(
 	'label'		=> 'Custom Scripts',
-	'icon'		=> sg_asset_url('/admin/includes/sg_framework/assets/images/icons/script.png'),
+	'icon'		=> sg_asset_url('framework/sg_admin/assets/images/icons/script.png'),
 	'type'		=> 'heading',
 	'fields'	=> array(
 		array(
@@ -587,7 +598,7 @@ $fields[] = array(
 /*----custom script options----*/
 $fields[] = array(
 	'label'		=> 'Backup & Restore',
-	'icon'		=> sg_asset_url('/admin/includes/sg_framework/assets/images/icons/database.png'),
+	'icon'		=> sg_asset_url('framework/sg_admin/assets/images/icons/database.png'),
 	'type'		=> 'heading'
 );
 

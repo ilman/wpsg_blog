@@ -37,6 +37,7 @@ jQuery(document).ready(function($){
 
 		var $nav_active = $this.find('.sg-to-side').find('.tab-nav-'+active_tab);
 
+		
 		if($nav_active.length < 1){
 			$nav_a.first().click();
 		}

@@ -4,7 +4,9 @@
 define('SG_THEME_PATH', get_template_directory());
 define('SG_THEME_URL', get_template_directory_uri());
 define('SG_THEME_ID', basename(get_template_directory()));
-define('SG_THEME_OPTIONS', get_option(SG_THEME_ID));
+// define('SG_THEME_OPTIONS', get_option(SG_THEME_ID));
+
+$sg_theme_options = get_option(SG_THEME_ID);
 
 
 /*----includes files----*/

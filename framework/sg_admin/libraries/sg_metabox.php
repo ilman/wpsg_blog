@@ -51,7 +51,7 @@ if(!class_exists('SG_MetaBox')){
 			global $pagenow;
 			if(in_array($pagenow, array('post-new.php', 'post.php')) && $this->_can_output($this)){
 				//js
-				wp_enqueue_script( 'sg-framework', SG_ADMIN_URL.'/assets/js/metabox.js', array('sg-form') );
+				// wp_enqueue_script( 'sg-framework', SG_ADMIN_URL.'/assets/js/metabox.js', array('sg-form') );
 				
 				// css
 				wp_enqueue_style( 'sg-bootstrap', SG_ADMIN_URL.'/assets/css/sg-bootstrap.css');
