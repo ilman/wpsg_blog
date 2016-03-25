@@ -1,7 +1,7 @@
 <?php wp_reset_query(); ?>
 
 <?php 
-	if(function_exists('sg_list_comments_cb')):
+	if(!function_exists('sg_list_comments_cb')):
 		function sg_list_comments_cb($comment, $args, $depth) {
 			$GLOBALS['comment'] = $comment; 
 ?>
