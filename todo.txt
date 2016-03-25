@@ -3,6 +3,7 @@
 - [done] theme option google font
 - [done] theme option tab 
 - [done] metabox
+- backup theme options
 - theme option success message
 - array option helper
 - auto set default option
@@ -17,16 +18,5 @@
 - user avatar
 - custom file tree editor
 - [done] tgm plugin
-- related post
-- popular post
-
-
-[done] footer
-[done] responsive content
-responsive menu
-[done] featured button
-[done] twitter feed
-[done] wordpress subscribe
-[done] user avatar
-[done] share button
-[done] social button
+- [done] related post
+- [done] popular post

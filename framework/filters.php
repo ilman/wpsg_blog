@@ -2,6 +2,9 @@
 
 class SG_ThemeFilter{
 
+	/**
+	 * Avoid empty widget title that can ruin your theme
+	 */
 	function widget_empty_title($output='') {
 		if ($output == '') {
 			return ' ';
@@ -9,11 +12,17 @@ class SG_ThemeFilter{
 		return $output;
 	}
 
+	/**
+	 * Make your widget css class pretty
+	 */
 	function widget_class($params){
 		$params[0]['before_widget'] = str_replace('_','-',$params[0]['before_widget']);
 		return $params;
 	}
 
+	/**
+	 * Default wp_title
+	 */
 	function wp_title($title, $sep) {
 		global $paged, $page;
 

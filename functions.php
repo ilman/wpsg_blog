@@ -23,20 +23,20 @@ require_once locate_template('front/framework/actions.php');
 // require_once locate_template('front/framework/filters.php');
 
 
+require_once locate_template('settings/tgm_plugins.php');
 require_once locate_template('settings/theme_options.php');
 require_once locate_template('settings/metaboxes.php');
 // require_once locate_template('settings/taxonomies.php');
-// require_once locate_template('settings/plugins/sg_popular_posts/sg_popular_posts.php');
-// require_once locate_template('settings/plugins/sg_related_posts/sg_related_posts.php');
-// require_once locate_template('settings/plugins/sg_related_destinations/sg_related_destinations.php');
+require_once locate_template('settings/plugins/sg_popular_posts/sg_popular_posts.php');
+require_once locate_template('settings/plugins/sg_related_posts/sg_related_posts.php');
 // require_once locate_template('settings/plugins/sg_user_avatar/sg_user_avatar.php');
 sg_include_path('/settings/custom_post_types');	
 
 
-// sg_include_path('framework/template_tags');
+sg_include_path('framework/template_tags');
 // sg_include_path('front/framework/template_tags');
-require_once locate_template('framework/template_tags/sg_content_tags.php');
-require_once locate_template('framework/template_tags/sg_paginations.php');
+// require_once locate_template('framework/template_tags/sg_content_tags.php');
+// require_once locate_template('framework/template_tags/sg_paginations.php');
 
 
 // require_once locate_template('/admin/includes/sg_framework/sg_framework.php');			// Utility functions
