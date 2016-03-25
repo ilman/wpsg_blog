@@ -23,7 +23,7 @@ class SG_FrontSetup{
 		));
 			
 		//Add image size
-		if ( function_exists( 'add_image_size' ) ) { 
+		if(function_exists('add_image_size')){ 
 			add_image_size( 'small', 50, 50, true );
 		}
 	}
@@ -39,14 +39,14 @@ class SG_FrontSetup{
 		$cache_mod_time = (file_exists($cache_file_path)) ? filemtime($cache_file_path) : 0;
 		$cache_mod_time = date("Y-m-d-H:i:s", $cache_mod_time);
 		
-		$theme_file_url = get_template_directory_uri().'/front/assets/css/blog.css';
-		$theme_file_path = TEMPLATEPATH.'/front/assets/css/blog.css';
+		$theme_file_url = get_template_directory_uri().'/front/assets/css/theme.css';
+		$theme_file_path = TEMPLATEPATH.'/front/assets/css/theme.css';
 		$theme_mod_time = (file_exists($theme_file_path)) ? filemtime($theme_file_path) : 0;
 		$theme_mod_time = date("Y-m-d-H:i:s", $theme_mod_time);
 		
 		//wp_register_style( $handle, $src, $deps, $ver, $media );
 		// wp_enqueue_style('style-bootstrap', get_template_directory_uri() . '/front/assets/css/bootstrap.css', array(), '', 'all' );
-		wp_enqueue_style('theme-bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css');
+		// wp_enqueue_style('theme-bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css');
 		wp_enqueue_style('theme-front', $theme_file_url, array(), $theme_mod_time, 'all' );
 		wp_enqueue_style('theme-dynamic-css', $cache_file_url, array(), $cache_mod_time, 'all' );
 		
@@ -58,16 +58,16 @@ class SG_FrontSetup{
 		// wp_enqueue_style('theme-dynamic-css' );
 		
 		//wp_register_script( $handle, $src, $deps, $ver, $media );	
-		wp_register_script('modernizr', 
-			get_template_directory_uri() . '/front/assets/js/modernizr.min.js');
+		// wp_register_script('modernizr', 
+		// 	get_template_directory_uri() . '/front/assets/js/modernizr.min.js');
 
-		wp_register_script('vendors', 
-			get_template_directory_uri() . '/front/assets/js/vendors.min.js',
-			array('jquery'),'1.0.0',true);
+		// wp_register_script('vendors', 
+		// 	get_template_directory_uri() . '/front/assets/js/vendors.min.js',
+		// 	array('jquery'),'1.0.0',true);
 
-		wp_register_script('sg-shortcodes', 
-			get_template_directory_uri() . '/front/assets/js/shortcodes.js', 
-			array('jquery'),'1.0.0',true);
+		// wp_register_script('sg-shortcodes', 
+		// 	get_template_directory_uri() . '/front/assets/js/shortcodes.js', 
+		// 	array('jquery'),'1.0.0',true);
 
 		wp_register_script('theme-js', 
 			get_template_directory_uri() . '/front/assets/js/scripts.js', 

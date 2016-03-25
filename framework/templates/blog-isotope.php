@@ -10,6 +10,7 @@
 	}
 	$blog_post_column = 12/$blog_post_column;
 ?>
+
 <div class="blog-isotope">
 	<ul class="post-list list-masonry row">
 		<?php while ( have_posts() ) : the_post(); ?>

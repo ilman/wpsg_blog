@@ -1,8 +1,8 @@
 <div class="text-center">
 	
 	<p class="text-primary" style="font-size:6em; line-height:1.2em;"><i class="fa fa-warning"></i></p>
-	<h2 class="text-ucase text-bold">Oops. The page you requested couldn't be found :(</h2>
-	<p>Sorry, the page you are looking for is no longer online or has been moved! Try using our search or just close this page</p>
+	<h2 class="text-ucase text-bold">Oops. No result matched with your criteria :(</h2>
+	<p>Sorry, no result matched with your criteria. Please try using another text to search</p>
 	
 
 	<div class="block-search">

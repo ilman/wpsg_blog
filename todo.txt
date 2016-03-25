@@ -3,16 +3,30 @@
 - [done] theme option google font
 - [done] theme option tab 
 - [done] metabox
+- theme option success message
 - array option helper
 - auto set default option
 - custom post type
 - shortcode
-- search result page
-- 404 page
+- [done] search result page
+- [done] 404 page
 - author page
-- category page
+- [done] category page
 - customizer
 - multilingual
 - user avatar
 - custom file tree editor
-- tgm plugin
+- [done] tgm plugin
+- related post
+- popular post
+
+
+[done] footer
+[done] responsive content
+responsive menu
+[done] featured button
+[done] twitter feed
+[done] wordpress subscribe
+[done] user avatar
+[done] share button
+[done] social button

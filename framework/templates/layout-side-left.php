@@ -2,7 +2,14 @@
 	<div class="col-sm-8 content-main pull-right">
 		<?php do_action('sg_content_header'); ?>
 		
-		<?php sg_get_template_part($sg_wrapper['content_base'], $sg_wrapper['content_layout']); ?>
+		<?php 
+			if(have_posts()){
+				sg_get_template_part($sg_wrapper['content_base'], $sg_wrapper['content_layout']);
+			}
+			else{
+				sg_get_template_part('framework/templates/content', 'no-result');
+			}
+		?>
 		
 		<?php do_action('sg_content_footer'); ?>		
 	</div>

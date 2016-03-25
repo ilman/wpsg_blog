@@ -42,8 +42,8 @@ if(!class_exists('SG_MetaBox')){
 		function _can_output($object){
 			$can_output = false;
 					
-			if(!SG_WP::get_current_post_type()){ $can_output = true; }
-			if(in_array(SG_WP::get_current_post_type(), $object->post_type)){ $can_output = true; }
+			if(!SG_WP::getCurrentPostType()){ $can_output = true; }
+			if(in_array(SG_WP::getCurrentPostType(), $object->post_type)){ $can_output = true; }
 			return $can_output;
 		}
 		
@@ -86,7 +86,7 @@ if(!class_exists('SG_MetaBox')){
 		 * saves the captured data
 		 */
 		function _save_box($post_id) {
-			$post_type = SG_WP::get_current_post_type();
+			$post_type = SG_WP::getCurrentPostType();
 			
 			// verify nonce
 			if ( ! isset( $_POST['custom_meta_box_nonce_field'] ) )

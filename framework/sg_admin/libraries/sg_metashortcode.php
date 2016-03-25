@@ -87,8 +87,8 @@ if(!class_exists('SG_MetaShortcode')){
 		static function _can_output($sc_button){
 			$can_output = false;
 					
-			if(!sg_wp::get_current_post_type()){ $can_output = true; }
-			if(in_array(sg_wp::get_current_post_type(), $sc_button->post_type)){ $can_output = true; }
+			if(!sg_wp::getCurrentPostType()){ $can_output = true; }
+			if(in_array(sg_wp::getCurrentPostType(), $sc_button->post_type)){ $can_output = true; }
 			if (get_user_option('rich_editing') == 'true'){ $can_output = true;	}
 			return $can_output;
 		}

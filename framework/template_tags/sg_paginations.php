@@ -29,7 +29,7 @@ function sg_pagination(){
 
     if( is_array( $pages ) ) {
         $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
-        echo '<div class="text-center"><ul class="pagination">';
+        echo '<div class="text-center"><ul class="site-navigation paging-navigation pagination">';
         foreach ( $pages as $page ) {
                 echo "<li>$page</li>";
         }

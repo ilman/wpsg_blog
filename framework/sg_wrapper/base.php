@@ -57,13 +57,13 @@ if(!$sg_wrapper['content_layout']){
 		$value = 'full';
 	}
 	elseif(is_author()){
-		$value = sg_opt('author_content_layout');
+		$value = sg_opt('author_post_layout');
 	}
 	elseif(is_archive()){
-		$value = sg_opt('archive_content_layout');
+		$value = sg_opt('archive_post_layout');
 	}
 	elseif(is_search()){
-		$value = sg_opt('search_content_layout');
+		$value = sg_opt('search_post_layout');
 	}
 
 	$sg_wrapper['content_layout'] = ($value) ? $value : sg_opt('blog_post_layout', 'full');

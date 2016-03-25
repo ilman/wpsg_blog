@@ -14,7 +14,7 @@ if(basename($sg_wrapper_file)=='front-page.php' || basename($sg_wrapper_file)=='
 else{
 	$sg_wrapper['content_base'] = basename($sg_wrapper_file,'.php');
 	$sg_wrapper['content_layout'] = '';
-	include(locate_template('templates/'.$sg_wrapper['theme_layout'].'.php'));
+	include(locate_template('framework/templates/'.$sg_wrapper['theme_layout'].'.php'));
 }
 echo ($sg_wrapper['theme_container']) ? '</div><!-- container -->' : '';
 echo ($sg_wrapper['theme_section']) ? '</div><!-- section -->' : '';

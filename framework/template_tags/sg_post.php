@@ -121,8 +121,8 @@ function sg_load_more() {
     <nav role="navigation" class="<?php echo $nav_class; ?>"> 
     <?php if ( is_single() ) : // navigation links for single posts ?>
  
-        <?php previous_post_link( '<div class="nav-link nav-previous">%link</div>', '<span class="meta-nav">' . sg_x('&larr;', 'Previous post link') . '</span> %title' ); ?>
-        <?php next_post_link( '<div class="nav-link nav-next">%link</div>', '%title <span class="meta-nav">' . sg_x('&rarr;', 'Next post link') . '</span>' ); ?>
+        <?php previous_post_link( '<div class="nav-link nav-previous">%link</div>', '<span class="meta-nav">' . _x('&larr;', 'Previous post link', SG_THEME_ID) . '</span> %title' ); ?>
+        <?php next_post_link( '<div class="nav-link nav-next">%link</div>', '%title <span class="meta-nav">' . _x('&rarr;', 'Next post link', SG_THEME_ID) . '</span>' ); ?>
  
     <?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
  

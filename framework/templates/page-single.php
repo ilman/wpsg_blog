@@ -24,6 +24,6 @@
 
 <?php 
 	if(is_single()){
-		include(locate_template('templates/content-bottom.php'));
+		include(locate_template('framework/templates/content-bottom.php'));
 	}
 ?>

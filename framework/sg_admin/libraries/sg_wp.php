@@ -22,7 +22,7 @@ class SG_WP{
 		return str_replace( self::_content_dir(), self::_content_url(), $file );
 	}
 
-	static function get_current_post_type() {
+	static function getCurrentPostType() {
 		global $post, $typenow, $current_screen;
 
 		//we have a post so we can just get the post type from that
@@ -41,7 +41,7 @@ class SG_WP{
 		return false;
 	}
 
-	function get_post_meta_all($post_id=false){
+	function getPostMetaAll($post_id=false){
 		global $wpdb;
 		$data = array();
 		$wpdb->query("
@@ -55,7 +55,7 @@ class SG_WP{
 		return $data;
 	}
 
-	function get_post_list($type='post'){
+	function getPostList($type='post'){
 		global $wpdb;
 			
 		$sql_query = "
@@ -69,7 +69,7 @@ class SG_WP{
 		return $wpdb->get_results($sql_query, ARRAY_A);	
 	}
 
-	function get_taxonomy_list($type='category'){
+	function getTaxonomyList($type='category'){
 		global $wpdb;
 			
 		$sql_query = "
